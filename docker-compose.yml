@@ -1,0 +1,39 @@
+version: "3.8"
+name: chat_api
+services:
+  #API service 
+  api:
+    container_name: chat_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./src:/home/node/app/src
+      - chat-app-node-modules: /home/node/app/node-modules
+    #working_dir: /home/node/app
+    command: npm run dev
+    depends_on:
+      - mongodb
+
+  #Database Service
+  mongodb:
+    container_name: mongo_chat_server
+    image: mongo:7.0.4
+    env_file:
+      - .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGODB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGODB_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGODB_DATABASE}
+    restart: always
+    ports:
+      - "27018:27017"
+    volumes:
+      - db-data:/data/db
+volumes:
+  db-data:
+  chat-app-node-modules:
