@@ -10,10 +10,10 @@ services:
     env_file:
       - .env
     ports:
-      - "3001:3000"
+      - "${API_PORT}:3000"
     volumes:
       - ./src:/home/node/app/src
-      - chat-app-node-modules: /home/node/app/node-modules
+      - chat-app-node-modules:/home/node/app/node-modules
     #working_dir: /home/node/app
     command: npm run dev
     depends_on:

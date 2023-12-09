@@ -6,5 +6,6 @@ export default function errorHandler(
   res: Response,
   next: NextFunction
 ): void {
+  console.log(error);
   res.error({ message: error.message });
 }

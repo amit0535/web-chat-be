@@ -2,7 +2,7 @@ import AuthService from "@/services/auth.service";
 import { Request, Response } from "express";
 
 export default class AuthController {
-  static async login(req: Request, res: Response) {
+  static async login(req: Request, res: Response, next) {
     const { username, password } = req.body;
     const token = await AuthService.login(username, password);
     if (token) {

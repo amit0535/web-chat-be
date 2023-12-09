@@ -4,5 +4,15 @@ import { IJWTToken } from "./JWTToken";
 import { RoomType } from "./RoomType";
 import { IRoom } from "./Room";
 import { IMessage } from "./Message";
-import { MediaType } from "./MediaType";
-export { IMovie, IUser, IJWTToken, RoomType, IRoom, IMessage, MediaType };
+import { ContentType } from "./ContentType";
+import { ITimestamps } from "./TimeStamps";
+export {
+  IMovie,
+  IUser,
+  IJWTToken,
+  RoomType,
+  IRoom,
+  IMessage,
+  ContentType,
+  ITimestamps,
+};

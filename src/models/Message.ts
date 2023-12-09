@@ -1,16 +1,12 @@
 import { Schema, model } from "mongoose";
-import { IMessage, MediaType } from "@/interfaces";
+import { IMessage, ContentType } from "@/interfaces";
 
 const messageSchema = new Schema({
-  roomId: { type: Schema.Types.ObjectId, ref: "Room" },
-  senderId: { type: Schema.Types.ObjectId, ref: "User" },
-  mediaType: { type: MediaType },
-  releaseYear: { type: Number, min: 1800, max: 2050 },
-  rating: { type: Number, min: 1, max: 10 },
-  meta: {
-    votes: Number,
-    favs: Number,
-  },
+  room: { type: Schema.Types.ObjectId, ref: "Room" },
+  sender: { type: Schema.Types.ObjectId, ref: "User" },
+  contentType: { type: String },
+  text: { type: String },
+  url: { type: String },
 });
 
 export default model<IMessage>("Message", messageSchema);

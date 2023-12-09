@@ -1,3 +1,3 @@
 import MovieService from "./movie.service";
-
-export { MovieService };
+import RoomService from "./room.service";
+export { MovieService, RoomService };
