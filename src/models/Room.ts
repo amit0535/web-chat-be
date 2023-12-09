@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 
 const roomSchema = new Schema({
   name: String, // String is shorthand for {type: String}
-  type: RoomType,
+  type: { type: String },
   users: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });
 
