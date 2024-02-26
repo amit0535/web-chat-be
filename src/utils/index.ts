@@ -1,3 +1,3 @@
 import { comparePassword, getPasswordHash } from "./auth";
-
-export { getPasswordHash, comparePassword };
+import logger from "./logger";
+export { getPasswordHash, comparePassword, logger };

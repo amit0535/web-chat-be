@@ -8,7 +8,7 @@ import {
 const app: Express = express();
 app.use(express.json());
 app.use(responseHandler);
-app.use("/api", routes);
+app.use("/api/v1/", routes);
 //not for production use
 app.get("/api/config", (req: Request, res: Response) => {
   res.json({ success: true, env: process.env });

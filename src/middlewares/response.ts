@@ -4,11 +4,11 @@ export default function responseHandler(
   res: Response,
   next: NextFunction
 ) {
-  res.success = function (data: any, statusCode: number = 200) {
-    res.status(statusCode).json({ success: true, ...data });
+  res.success = function (data: any, httpCode: number = 200) {
+    res.status(httpCode).json({ success: true, ...data });
   };
-  res.error = function (data: any, statusCode: number = 500) {
-    res.status(statusCode).json({ success: false, ...data });
+  res.error = function (data: any, httpCode: number = 500) {
+    res.status(httpCode).json({ success: false, ...data });
   };
   next();
 }
